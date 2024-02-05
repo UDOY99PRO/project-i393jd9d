@@ -5,26 +5,25 @@ res.send(true);
 app.listen(3000);
 const { Client, GatewayIntentBits } = require('discord.js');
 
-const intents = new GatewayIntentBits([
-  'GUILDS',
-  'GUILD_MEMBERS',
-  'GUILD_BANS',
-  'GUILD_EMOJIS_AND_STICKERS',
-  'GUILD_INTEGRATIONS',
-  'GUILD_WEBHOOKS',
-  'GUILD_INVITES',
-  'GUILD_VOICE_STATES',
-  'GUILD_PRESENCES',
-  'GUILD_MESSAGES',
-  'GUILD_MESSAGE_REACTIONS',
-  'GUILD_MESSAGE_TYPING',
-  'DIRECT_MESSAGES',
-  'DIRECT_MESSAGE_REACTIONS',
-  'DIRECT_MESSAGE_TYPING',
-]);
-
-const client = new Client({ intents });
-
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildBans,
+    GatewayIntentBits.GuildEmojisAndStickers,
+    GatewayIntentBits.GuildIntegrations,
+    GatewayIntentBits.GuildWebhooks,
+    GatewayIntentBits.GuildInvites,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildMessageTyping,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.DirectMessageReactions,
+    GatewayIntentBits.DirectMessageTyping,
+  ],
+});
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
