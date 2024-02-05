@@ -32,4 +32,15 @@ client.on('ready', () => {
   });
 });
 
+client.on("messageCreate", async(message) => {
+if(message.content == ".?"){
+  message.reply({content: `I am Alive `});
+}
+  return;
+});
+
+
+
+
+
 client.login(process.env.TOKEN);
