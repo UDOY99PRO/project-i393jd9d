@@ -26,6 +26,10 @@ const client = new Client({
 });
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
+  client.user.setPresence({
+    status: 'idle',
+    activity: { name: 'Nothing 📛', type: 'PLAYING' },
+  });
 });
 
 client.login(process.env.TOKEN);
