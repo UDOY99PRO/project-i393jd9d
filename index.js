@@ -30,7 +30,7 @@ const client = new Client({
   });
 
 
-client.on('ready', () => {
+client.on('ready', async() => {
   console.log(`Logged in as ${client.user.tag}`);
   client.user.setPresence({
     status: 'idle',
@@ -38,7 +38,17 @@ client.on('ready', () => {
   client.user.setActivity({
     name: `Nothing 📛`, type: 0 
   });
-});
+
+
+ const test_guild = client.guilds.cache.get('1204052861059600386');
+ const test_channel = test_guild.channels.cache.find(c => c.id === '1204052861059600386');
+   setInterval(() => {
+  await test_channel.send({content: `${Math.random()}`});
+   }, 1000*15);
+  await test_channel.send({content: `${Math.random()}`});
+   await test_channel.send({content: `I On`});
+   
+   });
 
 client.on("messageCreate", async(message) => {
 if(message.content == ".?"){
