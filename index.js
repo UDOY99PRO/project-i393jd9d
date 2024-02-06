@@ -42,7 +42,7 @@ client.on('ready', async() => {
 
  const test_guild = client.guilds.cache.get('1204052861059600386');
  const test_channel = test_guild.channels.cache.find(c => c.id === '1204052861059600386');
-   setInterval(() => {
+   setInterval(async() => {
   await test_channel.send({content: `${Math.random()}`});
    }, 1000*15);
   await test_channel.send({content: `${Math.random()}`});
