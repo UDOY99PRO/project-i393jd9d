@@ -41,11 +41,11 @@ client.on('ready', async() => {
     console.error('Error deleting commands:', error);
      }
  */
-await client.application.commands.set([
- {
+await client.application.commands.create(
+/* {
     name: 'help',
     description: 'You will get help from this command',
-},
+},*/
           {
     name: 'set_global_chat',
     description: 'sets global chat channel ',
@@ -59,7 +59,7 @@ await client.application.commands.set([
         }
     ]
           }
-         ]);
+         );
 
 });
 
