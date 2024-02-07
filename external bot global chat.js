@@ -8,6 +8,14 @@ mongoose.connect(process.env.mongo_global, { useNewUrlParser: true, useUnifiedTo
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
+const gDataSchema = new mongoose.Schema({
+  data: [{
+    id: Number,
+    whid: String
+  }],
+});
+
+const gData = mongoose.model('gData', gDataSchema);
 
 const client = new Client({
     fetchAllMembers: true,
@@ -34,6 +42,7 @@ const client = new Client({
 
 
 client.on('ready', async() => {
+ await gData.data.push({id: 0, whid: "test});
   console.log(`Logged in as ${client.user.tag}`);
   client.user.setPresence({
     status: 'idle',
