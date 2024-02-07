@@ -44,12 +44,12 @@ client.application.commands.create({
     name: 'help',
     description: 'You will get help from this command',
 },
-    name: 'set global chat',
-    description: 'Your command description here',
+    name: 'set_global_chat',
+    description: 'sets global chat channel ',
     options: [
         {
             name: 'channel',
-            description: 'Select a text channel',
+            description: 'Select the channel in which the global chat will be set.',
             type: 'CHANNEL',
             required: true,
             channelTypes: ['GUILD_TEXT'] // Specify channel type as GUILD_TEXT for text channels only
