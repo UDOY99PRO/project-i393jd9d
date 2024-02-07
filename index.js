@@ -3,8 +3,9 @@ app.get("/", async(req, res) => {
 res.send(true);
 });
 app.listen(3000);
-require("./external bot global chat.js");
-  var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
+//require("./external bot global chat.js");
+require("./db.global.js"); 
+var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
 
 const client = new Client({
     fetchAllMembers: true,
