@@ -71,8 +71,10 @@ client.on('interactionCreate', async(interaction) => {
         const channelOption = options.getChannel('channel');
           if (channelOption) {
             const selectedChannel = channelOption.channel;
-            console.log('Selected channel:', selectedChannel.name);
-             await interaction.reply({content: `Selected channel: ${selectedChannel.name}`});
+		  console.log(selectedChannel);
+		  console.log(channelOption);
+           // console.log('Selected channel:', selectedChannel.name);
+           //  await interaction.reply({content: `Selected channel: ${selectedChannel.name}`});
         } else {
             console.log('No channel option provided.');
      await interaction.reply({content: 'No channel option provided.'});  
