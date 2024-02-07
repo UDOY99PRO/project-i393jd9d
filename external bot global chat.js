@@ -42,7 +42,7 @@ client.on('ready', async() => {
     console.error('Error deleting commands:', error);
      }
  */
-client.application.commands.create(
+client.application.commands.set([
  {
     name: 'help',
     description: 'You will get help from this command',
@@ -59,9 +59,8 @@ client.application.commands.create(
             channelTypes: ['GUILD_TEXT'] // Specify channel type as GUILD_TEXT for text channels only
         }
     ]
-});
-  
-   });
+          }
+         ]);
 
 
 
