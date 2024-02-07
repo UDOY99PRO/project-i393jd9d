@@ -81,13 +81,13 @@ client.on('interactionCreate', async(interaction) => {
     }
 });
 
-   const { SlashCommandBuilder } = require('discord.js');
 
-const data = new SlashCommandBuilder()
-	.setName('echo')
-	.setDescription('Replies with your input!')
-	.addChannelOption(option =>
-		option.setName('channel')
-			.setDescription('The channel to echo into'));
 
-//console.log(data);
+
+
+
+
+//main global chat event
+client.on("messageCreate", async(message) => {
+
+});
