@@ -43,7 +43,19 @@ client.on('ready', async() => {
 client.application.commands.create({
     name: 'help',
     description: 'You will get help from this command',
-  });
+},
+    name: 'set global chat',
+    description: 'Your command description here',
+    options: [
+        {
+            name: 'channel',
+            description: 'Select a text channel',
+            type: 'CHANNEL',
+            required: true,
+            channelTypes: ['GUILD_TEXT'] // Specify channel type as GUILD_TEXT for text channels only
+        }
+    ]
+});
   
    });
 
