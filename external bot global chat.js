@@ -48,9 +48,10 @@ await client.application.commands.create({
         {
             name: 'channel',
             description: 'Select the channel in which the global chat will be set.',
-            type: 'CHANNEL',
-            required: true,
-        }
+       /*     type: 'CHANNEL',
+            required: true,   
+            channelTypes: ['GUILD_TEXT'] // Specify channel type as GUILD_TEXT for text channels only
+    */  }
     ]
 });
 
