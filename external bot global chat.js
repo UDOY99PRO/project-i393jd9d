@@ -35,6 +35,7 @@ client.on('ready', async() => {
   });
 try {
     const commands = await client.application.commands.fetch();
+ console.log(await commands);
     await Promise.all(commands.map(command => command.delete()));
     console.log('All commands deleted successfully');
   } catch (error) {
