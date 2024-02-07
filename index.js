@@ -39,15 +39,11 @@ client.on('ready', async() => {
     name: `Nothing 📛`, type: 0 
   });
 
-
- const test_guild = client.guilds.cache.get('1193383402133524580');
- const test_channel = test_guild.channels.cache.find(c => c.id === '1204052861059600386');
-   setInterval(async() => {
-  await test_channel.send({content: `${Math.random()}`});
-   }, 1000*15);
-  await test_channel.send({content: `${Math.random()}`});
-   await test_channel.send({content: `I On`});
-   
+client.application.commands.create({
+    name: 'yourcommand',
+    description: 'Your command description',
+  });
+  
    });
 
 client.on("messageCreate", async(message) => {
@@ -61,4 +57,4 @@ if(message.content == ".?"){
 
 
 
-client.login(process.env.TOKEN);
+client.login(process.env.GLOBAL_TOKEN);
