@@ -96,7 +96,7 @@ client.on("messageCreate", async(message) => {
 var cid = message.channel.id;
  var rwhat = chanData.some(ed => ed.cid === cid);
  if(rwhat){
-  await message.react("🎉")!
+  await message.react("🎉");
  }
 });
 
