@@ -21,6 +21,8 @@ const client = new Client({
       GatewayIntentBits.GuildVoiceStates
     ]
   });
+client.login(process.env.GLOBAL_TOKEN);
+
 
 
 client.on('ready', async() => {
@@ -63,4 +65,24 @@ client.application.commands.create({
 
 
 
-client.login(process.env.GLOBAL_TOKEN);
+
+
+
+client.on('interactionCreate', async interaction => {
+    if (!interaction.isCommand()) return;
+
+    const { commandName, options } = interaction;
+
+    if (commandName === 'set_global_chat') {
+        const channelOption = options.getChannel('channel');
+          if (channelOption) {
+            const selectedChannel = channelOption.channel;
+            console.log('Selected channel:', selectedChannel.name);
+             await interaction.reply({content: `Selected channel: ${selectedChannel.name}`});
+        } else {
+            console.log('No channel option provided.');
+     await interaction.reply({content: 'No channel option provided.'});  
+           return;
+          }
+    }
+});
