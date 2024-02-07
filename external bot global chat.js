@@ -1,4 +1,5 @@
  var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
+const mongoose = require('mongoose');
 
 
 const client = new Client({
