@@ -42,7 +42,7 @@ const client = new Client({
 
 
 client.on('ready', async() => {
- await gData.data.push({id: 0, whid: "test});
+ await gData.data.push({id: 0, whid: "test"});
   console.log(`Logged in as ${client.user.tag}`);
   client.user.setPresence({
     status: 'idle',
