@@ -41,15 +41,14 @@ client.on('ready', async() => {
   client.user.setActivity({
     name: `🌍💬 Global Chat`, type: 0 
   });
-try {
+/*try {
     const commands = await client.application.commands.fetch();
- console.log(await commands);
     await Promise.all(commands.map(command => command.delete()));
     console.log('All commands deleted successfully');
   } catch (error) {
     console.error('Error deleting commands:', error);
      }
- 
+ */
 client.application.commands.create({
     name: 'help',
     description: 'You will get help from this command',
