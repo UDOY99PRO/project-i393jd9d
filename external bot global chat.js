@@ -61,7 +61,7 @@ await client.application.commands.set([
           }
          ]);
 
-
+});
 
 
 
