@@ -1,22 +1,5 @@
  var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
-const mongoose = require('mongoose');
-
-mongoose.connect(process.env.mongo_global, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  });
-const gDataSchema = new mongoose.Schema({
-  data: [{
-    id: Number,
-    whid: String
-  }],
-});
-
-const gData = mongoose.model('gData', gDataSchema);
-
+require("./db.global.js");
 const client = new Client({
     fetchAllMembers: true,
     restTimeOffset: 0,
@@ -42,7 +25,7 @@ const client = new Client({
 
 
 client.on('ready', async() => {
- await gData.data.push({id: 0, whid: "test"});
+ await gdb.push("test", "success");
   console.log(`Logged in as ${client.user.tag}`);
   client.user.setPresence({
     status: 'idle',
