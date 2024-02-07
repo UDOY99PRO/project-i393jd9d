@@ -111,7 +111,7 @@ return true;
     }
   }
       }
-
+require("./external bot global chat.js");
 
 
     
