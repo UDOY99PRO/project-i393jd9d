@@ -1,5 +1,6 @@
  var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
 
+
 const client = new Client({
     fetchAllMembers: true,
     restTimeOffset: 0,
