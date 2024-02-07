@@ -44,15 +44,15 @@ client.on('ready', async() => {
 await client.application.commands.create({
     name: 'set_global_chat',
     description: 'Sets global chat channel',
-  /* options: [
+   options: [
         {
             name: 'channel',
             description: 'Select the channel in which the global chat will be set.',
-           type: 'CHANNEL',
+           type: 7,
             required: true,   
             channelTypes: ['GUILD_TEXT'] // Specify channel type as GUILD_TEXT for text channels only
       }
-    ]*/
+    ]
 });
 
 });
@@ -90,4 +90,4 @@ const data = new SlashCommandBuilder()
 		option.setName('channel')
 			.setDescription('The channel to echo into'));
 
-console.log(data);
+//console.log(data);
