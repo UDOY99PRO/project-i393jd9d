@@ -1,4 +1,6 @@
+(async() => {
  var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
+var chanData = await gdb.getArray("channel.data");
 const client = new Client({
     fetchAllMembers: true,
     restTimeOffset: 0,
@@ -72,8 +74,10 @@ client.on('interactionCreate', async(interaction) => {
           if (channelOption) {
         	  console.log(channelOption);
        //     console.log('Selected channel:', selectedChannel.name);
-            await interaction.reply({content: `Selected channel: ${channelOption.name}`});
-        } else {
+            await interaction.reply({content: `Selected channel: <#${channelOption.id}>`});
+           await gdb.push({id: channelOption.guild.id, cid: channelOption.id, whid: null });
+           await chanData.push({id: channelOption.guild.id, cid: channelOption.id, whid: null });
+          } else {
             console.log('No channel option provided.');
      await interaction.reply({content: 'No channel option provided.'});  
            return;
@@ -89,5 +93,11 @@ client.on('interactionCreate', async(interaction) => {
 
 //main global chat event
 client.on("messageCreate", async(message) => {
+var cid = message.channel.id;
+ var rwhat = chanData.some(ed => ed.cid === cid);
+ if(rwhat){
+  await message.react("🎉")!
+ }
+});
 
 });
