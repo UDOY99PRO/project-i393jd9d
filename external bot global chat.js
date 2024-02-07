@@ -100,4 +100,4 @@ var cid = message.channel.id;
  }
 });
 
-});
+})();
