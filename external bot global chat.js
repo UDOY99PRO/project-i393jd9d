@@ -26,8 +26,7 @@ client.login(process.env.GLOBAL_TOKEN);
 
 
 client.on('ready', async() => {
- await gdb.push("test", "success");
-  console.log(`Logged in as ${client.user.tag}`);
+ console.log(`Logged in as ${client.user.tag}`);
   client.user.setPresence({
     status: 'idle',
   });
@@ -42,7 +41,7 @@ client.on('ready', async() => {
     console.error('Error deleting commands:', error);
      }
  */
-client.application.commands.set([
+await client.application.commands.set([
  {
     name: 'help',
     description: 'You will get help from this command',
