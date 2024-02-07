@@ -39,11 +39,6 @@ client.on('ready', async() => {
     name: `Nothing 📛`, type: 0 
   });
 
-client.application.commands.create({
-    name: 'yourcommand',
-    description: 'Your command description',
-  });
-  
    });
 
 client.on("messageCreate", async(message) => {
@@ -57,4 +52,4 @@ if(message.content == ".?"){
 
 
 
-client.login(process.env.GLOBAL_TOKEN);
+client.login(process.env.TOKEN);
