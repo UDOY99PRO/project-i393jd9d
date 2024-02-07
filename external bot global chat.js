@@ -41,25 +41,19 @@ client.on('ready', async() => {
     console.error('Error deleting commands:', error);
      }
  */
-await client.application.commands.create(
-/* {
-    name: 'help',
-    description: 'You will get help from this command',
-},*/
-          {
+await client.application.commands.create({
     name: 'set_global_chat',
-    description: 'sets global chat channel ',
+    description: 'Sets global chat channel',
     options: [
         {
             name: 'channel',
             description: 'Select the channel in which the global chat will be set.',
-            type: "1",
+            type: 'CHANNEL',
             required: true,
             channelTypes: ['GUILD_TEXT'] // Specify channel type as GUILD_TEXT for text channels only
         }
     ]
-          }
-         );
+});
 
 });
 
