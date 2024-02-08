@@ -133,9 +133,11 @@ var cid = message.channel.id;
   }
   var embdto = new EmbedBuilder()
   .setTimestamp()
+  .setColor("Random")
   .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() })
   .setDescription(`${message.content}`)
-  
+  .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.iconURL()}`, url: 'https://discord.js.org' })
+	
  chanData.forEach(async(data) => {
 var toSendWh = data.wh;
  try {
