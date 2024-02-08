@@ -101,7 +101,9 @@ await gdb.pull("channel.data", torm[0]);
       return; // Terminate interaction if permission missing
      }
      var thisGuildChannel = chanData.filter(l => l.id === interaction.guildId);
-     if(!thisGuildChannel || thisGuildChannel){
+     if(!thisGuildChannel || thisGuildChannel.length === 0){
+    await 
+      return;
      }
     await interaction.editReply({content: `Successfully removed %% channel from global chat`}); 
     }
