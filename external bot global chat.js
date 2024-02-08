@@ -94,6 +94,7 @@ await gdb.pull("channel.data", torm);
     await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: null });
     chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: null });
 } catch (error) {
+       console.log(error);
     await interaction.editReply({ content: `❌ | Error: I think I don't have permission to manage or create webhooks. I need to create a webhook to send Global Messages to your selected channel` });
     return;
 }
