@@ -121,6 +121,10 @@ await gdb.pull("channel.data", torm[0]);
 client.on("messageCreate", async(message) => {
  if(message.author.bot) return;
 var cid = message.channel.id;
+ var rwhat = chanData.findIndex(ed => ed.cid === cid);
+ var whata = chanData.filter(i => i.cid === cid);
+ var whata = whata[0];
+ if(rwhat !== -1){
  chanData.forEach(async(data) => {
 var toSendWh = data.wh;
  try {
@@ -129,6 +133,7 @@ var toSendWh = data.wh;
  }catch {
  }
  });
+ }
 /* var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
  var whata = whata[0];
