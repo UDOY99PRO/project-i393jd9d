@@ -136,7 +136,7 @@ var cid = message.channel.id;
   .setColor("Random")
   .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() })
   .setDescription(`${message.content}`)
-  .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.iconURL()}`, url: `https://discord.com/users/${message.author.id}` })
+  .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 })}`, url: `https://discord.com/users/${message.author.id}` })
   .setTitle(`Global Chat`)
   .setURL("https://discord.com/oauth2/authorize?client_id=1204783126081962004&permissions=964760684624&scope=bot");
 	 
