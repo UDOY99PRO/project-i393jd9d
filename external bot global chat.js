@@ -110,7 +110,7 @@ client.on("messageCreate", async(message) => {
 var cid = message.channel.id;
  var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
- console.log(whata);
+ var whata = whata[0];
  if(rwhat !== -1){
   const webhookClient = new WebhookClient({ url: whata.wh });
   await webhookClient.send({content: `${message.content}`}).catch();   
