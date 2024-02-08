@@ -108,9 +108,10 @@ await gdb.pull("channel.data", torm);
 client.on("messageCreate", async(message) => {
  if(message.author.bot) return;
 var cid = message.channel.id;
- var rwhat = chanData.some(ed => ed.cid === cid);
+ var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
- if(rwhat){
+ console.log(whata);
+ if(rwhat !== -1){
   const webhookClient = new WebhookClient({ url: whata.wh });
   await webhookClient.send({content: `${message.content}`}).catch();   
 await message.delete().catch();
