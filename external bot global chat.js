@@ -125,6 +125,12 @@ var cid = message.channel.id;
  var whata = chanData.filter(i => i.cid === cid);
  var whata = whata[0];
  if(rwhat !== -1){
+  if(message.content.match(/(https?|ftp):\/\/[^\s/$.?#].[^\s]*/gi)){
+ try {
+   message.reply({content: "We dont allow To send links"});
+ }catch{}
+   return;
+  }
  chanData.forEach(async(data) => {
 var toSendWh = data.wh;
  try {
