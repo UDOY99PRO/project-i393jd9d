@@ -133,7 +133,9 @@ var cid = message.channel.id;
   }
   var embdto = new EmbedBuilder()
   .setTimestamp()
-  .setFooter({ text: `${message.guild.name}`, iconURL:  });
+  .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() })
+  .setDescription(`${message.content}`)
+  
  chanData.forEach(async(data) => {
 var toSendWh = data.wh;
  try {
