@@ -73,7 +73,7 @@ client.on('interactionCreate', async(interaction) => {
         const channelOption = options.getChannel('channel');
           if (channelOption) {
 if(chanData.indexOf(i => i.id === channelOption.guild.id)){
- var torm = chanData.filter(i => i.id === chanData.indexOf(i => i.id === channelOption.guild.id));
+ var torm = chanData.filter(i => i.id === channelOption.guild.id);
 await gdb.pull("channel.data", torm);
  chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
 
