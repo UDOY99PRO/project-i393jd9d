@@ -74,7 +74,7 @@ await interaction.deferReply().catch();
 
 if (chanData.findIndex(i => i.id === channelOption.guild.id) !== -1){
  var torm = chanData.filter(i => i.id === channelOption.guild.id);
-await gdb.pull("channel.data", torm);
+await gdb.pull("channel.data", torm[0]);
  chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
 }
          //grab wh
