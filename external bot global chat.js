@@ -73,11 +73,14 @@ await client.application.commands.set([
 client.on('interactionCreate', async(interaction) => {
     if (!interaction.isCommand()) return;
 await interaction.deferReply();
-    const { commandName, options } = interaction;
+ await
+ 
+  await
+ const { commandName, options } = interaction;
 
     if (commandName === 'set_global_chat') {
         const channelOption = options.getChannel('channel');
-          if (channelOption) {
+      
 if(chanData.indexOf(i => i.id === channelOption.guild.id)){
  var torm = chanData.filter(i => i.id === channelOption.guild.id);
 await gdb.pull("channel.data", torm);
@@ -86,7 +89,7 @@ await gdb.pull("channel.data", torm);
          //grab wh
        await channelOption.createWebhook('My Webhook')
     .then(async(webhook) => {
-      console.log(webhook.url);
+      console.log(webhook);
        await interaction.editReply({content: `<#${channelOption.id}> Set For Global Chat`});
            await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, wh: null });
            await chanData.push({id: channelOption.guild.id, cid: channelOption.id, wh: null });
@@ -96,11 +99,7 @@ await gdb.pull("channel.data", torm);
 await interaction.editReply({content: `❌ | Error: I think I dont Have Permission To Manage Or Create Webhooks, I need to create a webhook to send Global Messages to your selected channel`});
 return;   
     });
-} else {
-            console.log('No channel option provided.');
-     await interaction.editReply({content: 'No channel is provided to set global chat'});  
-           return;
-          }
+           
     }else if(commandName === 'remove_global_chat'){
     await interaction.editReply({content: "true"}); 
     }
