@@ -83,12 +83,12 @@ await gdb.pull("channel.data", torm);
      name: "Global Chatter",
      avatar: client.user.avatarURL()
     });
-    await interaction.editReply({ content: `<#${channelOption.id}> Set For Global Chat` });
+    await interaction.editReply({ content: `\`✅\` | <#${channelOption.id}> channel is successfully set for global chat` });
     await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: webhook.url });
     chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: webhook.url });
 } catch (error) {
        console.log(error);
-    await interaction.editReply({ content: `❌ | Error: I think I don't have permission to manage or create webhooks. I need manage-webhook permission to create a webhook to send Global Messages to your selected channel` });
+    await interaction.editReply({ content: `\`❌\` | Error: I think I don't have permission to manage or create webhooks. I need manage-webhook permission to create a webhook to send Global Messages to your selected channel` });
     return;
 }
            
