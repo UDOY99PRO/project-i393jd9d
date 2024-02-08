@@ -106,10 +106,13 @@ await gdb.pull("channel.data", torm);
 
 //main global chat event
 client.on("messageCreate", async(message) => {
+ if(message.author.bot) return;
 var cid = message.channel.id;
  var rwhat = chanData.some(ed => ed.cid === cid);
+ var whata = chanData.filter(i => i.cid === cid);
  if(rwhat){
-  await message.react("🎉");
+await message.delete().catch();
+  
  }
 });
 
