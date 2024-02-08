@@ -72,7 +72,7 @@ await client.application.commands.set([
 
 client.on('interactionCreate', async(interaction) => {
     if (!interaction.isCommand()) return;
-
+interaction.deferReply();
     const { commandName, options } = interaction;
 
     if (commandName === 'set_global_chat') {
@@ -82,16 +82,18 @@ if(chanData.indexOf(i => i.id === channelOption.guild.id)){
  var torm = chanData.filter(i => i.id === channelOption.guild.id);
 await gdb.pull("channel.data", torm);
  chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
-
 }
-            await interaction.reply({content: `Selected channel: <#${channelOption.id}>`});
+           
+            await interaction.editReply({content: `Selected channel: <#${channelOption.id}>`});
            await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, whid: null });
            await chanData.push({id: channelOption.guild.id, cid: channelOption.id, whid: null });
           } else {
             console.log('No channel option provided.');
-     await interaction.reply({content: 'No channel option provided.'});  
+     await interaction.editReply({content: 'No channel option provided.'});  
            return;
           }
+    }else if(commandName === 'remove_global_chat'){
+    await interaction.editReply({content: "true"}); 
     }
 });
 
