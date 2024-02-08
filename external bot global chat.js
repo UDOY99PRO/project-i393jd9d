@@ -90,7 +90,7 @@ await gdb.pull("channel.data", torm);
      name: "Global Chatter",
      avatar: client.user.avatarURL()
     });
-    console.log(webhook);
+    console.log(`${webhook}`);
     await interaction.editReply({ content: `<#${channelOption.id}> Set For Global Chat` });
     await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: null });
     chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: null });
