@@ -83,13 +83,15 @@ if(chanData.indexOf(i => i.id === channelOption.guild.id)){
 await gdb.pull("channel.data", torm);
  chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
 }
-           
-            await interaction.editReply({content: `Selected channel: <#${channelOption.id}>`});
-           await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, whid: null });
-           await chanData.push({id: channelOption.guild.id, cid: channelOption.id, whid: null });
+         //grab wh
+
+           //response
+            await interaction.editReply({content: `<#${channelOption.id}> Set For Global Chat`});
+           await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, wh: null });
+           await chanData.push({id: channelOption.guild.id, cid: channelOption.id, wh: null });
           } else {
             console.log('No channel option provided.');
-     await interaction.editReply({content: 'No channel option provided.'});  
+     await interaction.editReply({content: 'No channel is provided to set global chat'});  
            return;
           }
     }else if(commandName === 'remove_global_chat'){
