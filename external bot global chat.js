@@ -121,12 +121,20 @@ await gdb.pull("channel.data", torm[0]);
 client.on("messageCreate", async(message) => {
  if(message.author.bot) return;
 var cid = message.channel.id;
- var rwhat = chanData.findIndex(ed => ed.cid === cid);
+ chanData.forEach(data => {
+var toSendWh = data.wh;
+ try {
+  const webhookClient = new WebhookClient({ url: toSendWh });
+  await webhookClient.send({content: `${message.content}`}).catch(console.log);
+ }catch {
+ }
+ });
+/* var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
  var whata = whata[0];
  if(rwhat !== -1){
   const webhookClient = new WebhookClient({ url: whata.wh });
-  await webhookClient.send({content: `${message.content}`}).catch(console.log);   
+  await webhookClient.send({content: `${message.content}`}).catch(console.log);   */
 try {
   await message.delete()
 } catch {
