@@ -72,10 +72,10 @@ client.on('interactionCreate', async(interaction) => {
     if (commandName === 'set_global_chat') {
         const channelOption = options.getChannel('channel');
           if (channelOption) {
-if(arr.indexOf(i => i.id === channelOption.guild.id)){
- var torm = arr.filter(i => i.id === arr.indexOf(i => i.id === channelOption.guild.id));
+if(chanData.indexOf(i => i.id === channelOption.guild.id)){
+ var torm = chanData.filter(i => i.id === chanData.indexOf(i => i.id === channelOption.guild.id));
 await gdb.pull("channel.data", torm);
- arr.splice(arr.indexOf(i => i.id === channelOption.guild.id), 1);
+ chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
 
 }
             await interaction.reply({content: `Selected channel: <#${channelOption.id}>`});
