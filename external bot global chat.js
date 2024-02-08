@@ -102,10 +102,10 @@ await gdb.pull("channel.data", torm[0]);
      }
      var thisGuildChannel = chanData.filter(l => l.id === interaction.guildId);
      if(!thisGuildChannel || thisGuildChannel.length === 0){
-    await 
+    await interaction.editReply({ content: "No channel was set for global chat."});
       return;
      }
-    await interaction.editReply({content: `Successfully removed %% channel from global chat`}); 
+    await interaction.editReply({content: `Successfully removed <#${thisGuildChannel[0].id}> channel from global chat`}); 
     }
 });
 
