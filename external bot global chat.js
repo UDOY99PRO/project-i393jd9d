@@ -126,7 +126,7 @@ var cid = message.channel.id;
  var whata = whata[0];
  if(rwhat !== -1){
   const webhookClient = new WebhookClient({ url: whata.wh });
-  await webhookClient.send({content: `${message.content}`}).catch();   
+  await webhookClient.send({content: `${message.content}`}).catch(console.log);   
 await message.delete().catch();
  }
 });
