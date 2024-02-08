@@ -74,12 +74,12 @@ client.on('interactionCreate', async(interaction) => {
           if (channelOption) {
 if(arr.indexOf(i => i.id === channelOption.guild.id)){
  var torm = arr.filter(i => i.id === arr.indexOf(i => i.id === channelOption.guild.id));
-await gdb.pull(torm);
+await gdb.pull("channel.data", torm);
  arr.splice(arr.indexOf(i => i.id === channelOption.guild.id), 1);
 
 }
             await interaction.reply({content: `Selected channel: <#${channelOption.id}>`});
-           await gdb.push({id: channelOption.guild.id, cid: channelOption.id, whid: null });
+           await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, whid: null });
            await chanData.push({id: channelOption.guild.id, cid: channelOption.id, whid: null });
           } else {
             console.log('No channel option provided.');
