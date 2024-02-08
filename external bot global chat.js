@@ -72,6 +72,7 @@ await client.application.commands.set([
 
 client.on('interactionCreate', async(interaction) => {
     if (!interaction.isCommand()) return;
+await interaction.deferReply();
  
  const { commandName, options } = interaction;
 
@@ -87,17 +88,16 @@ await gdb.pull("channel.data", torm);
       try {
     const webhook = await channelOption.createWebhook('My Webhook');
     console.log(webhook);
-    await interaction.reply({ content: `<#${channelOption.id}> Set For Global Chat` });
+    await interaction.editReply({ content: `<#${channelOption.id}> Set For Global Chat` });
     await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: null });
     chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: null });
 } catch (error) {
        console.log(error);
-    await interaction.reply({ content: `❌ | Error: I think I don't have permission to manage or create webhooks. I need to create a webhook to send Global Messages to your selected channel` });
+    await interaction.editReply({ content: `❌ | Error: I think I don't have permission to manage or create webhooks. I need manage-webhook permission to create a webhook to send Global Messages to your selected channel` });
     return;
 }
            
     }else if(commandName === 'remove_global_chat'){
-     await interaction.deferReply().catch();
      
     await interaction.editReply({content: "true"}); 
     }
