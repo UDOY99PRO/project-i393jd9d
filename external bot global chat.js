@@ -133,7 +133,7 @@ var toSendWh = data.wh;
  }catch {
  }
  });
- }
+ 
 /* var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
  var whata = whata[0];
@@ -143,7 +143,7 @@ var toSendWh = data.wh;
 try {
   await message.delete()
 } catch {
-}
+}}
 });
 
 })();
