@@ -112,7 +112,8 @@ var cid = message.channel.id;
  var whata = chanData.filter(i => i.cid === cid);
  if(rwhat){
 await message.delete().catch();
-  
+  const webhookClient = new WebhookClient({ url: whata.wh });
+  await webhookClient.send({content: `${message.content}`}).catch();   
  }
 });
 
