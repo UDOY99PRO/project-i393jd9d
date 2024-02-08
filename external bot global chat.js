@@ -136,8 +136,9 @@ var cid = message.channel.id;
   .setColor("Random")
   .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() })
   .setDescription(`${message.content}`)
-  .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.iconURL()}`, url: 'https://discord.js.org' })
-	
+  .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.iconURL()}`, url: `https://discord.com/users/${message.author.id}` })
+  .setTitle(`Global Chat`)
+	 
  chanData.forEach(async(data) => {
 var toSendWh = data.wh;
  try {
