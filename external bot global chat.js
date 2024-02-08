@@ -121,7 +121,7 @@ await gdb.pull("channel.data", torm[0]);
 client.on("messageCreate", async(message) => {
  if(message.author.bot) return;
 var cid = message.channel.id;
- chanData.forEach(data => {
+ chanData.forEach(async(data) => {
 var toSendWh = data.wh;
  try {
   const webhookClient = new WebhookClient({ url: toSendWh });
