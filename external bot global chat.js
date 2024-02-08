@@ -72,11 +72,12 @@ await client.application.commands.set([
 
 client.on('interactionCreate', async(interaction) => {
     if (!interaction.isCommand()) return;
-await interaction.deferReply();
  
  const { commandName, options } = interaction;
 
     if (commandName === 'set_global_chat') {
+     await interaction.deferReply().catch();
+     
         const channelOption = options.getChannel('channel');
       
 
@@ -98,6 +99,8 @@ await gdb.pull("channel.data", torm);
 }
            
     }else if(commandName === 'remove_global_chat'){
+     await interaction.deferReply().catch();
+     
     await interaction.editReply({content: "true"}); 
     }
 });
