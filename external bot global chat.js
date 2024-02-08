@@ -35,14 +35,7 @@ client.on('ready', async() => {
   client.user.setActivity({
     name: `🌍💬 Global Chat`, type: 0 
   });
-/*try {
-    const commands = await client.application.commands.fetch();
-    await Promise.all(commands.map(command => command.delete()));
-    console.log('All commands deleted successfully');
-  } catch (error) {
-    console.error('Error deleting commands:', error);
-     }
- */
+ 
 await client.application.commands.set([
  {
     name: 'set_global_chat',
@@ -72,7 +65,7 @@ await client.application.commands.set([
 
 client.on('interactionCreate', async(interaction) => {
     if (!interaction.isCommand()) return;
-await interaction.deferReply();
+await interaction.deferReply().catch();
  
  const { commandName, options } = interaction;
 
@@ -90,12 +83,9 @@ await gdb.pull("channel.data", torm);
      name: "Global Chatter",
      avatar: client.user.avatarURL()
     });
-    console.log(`webhook: ${webhook.url}`);
-           console.log(`webhook: ${webhook.id}`);
-           console.log(`webhook: ${webhook.token}`);
     await interaction.editReply({ content: `<#${channelOption.id}> Set For Global Chat` });
-    await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: null });
-    chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: null });
+    await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: webhook.url });
+    chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: webhook.url });
 } catch (error) {
        console.log(error);
     await interaction.editReply({ content: `❌ | Error: I think I don't have permission to manage or create webhooks. I need manage-webhook permission to create a webhook to send Global Messages to your selected channel` });
