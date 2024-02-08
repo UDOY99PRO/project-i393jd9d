@@ -87,16 +87,16 @@ await gdb.pull("channel.data", torm);
        await channelOption.createWebhook('My Webhook')
     .then(async(webhook) => {
       console.log(webhook.url);
+       await interaction.editReply({content: `<#${channelOption.id}> Set For Global Chat`});
+           await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, wh: null });
+           await chanData.push({id: channelOption.guild.id, cid: channelOption.id, wh: null });
+     
     })
     .catch(async(error) => {  
 await interaction.editReply({content: `❌ | Error: I think I dont Have Permission To Manage Or Create Webhooks, I need to create a webhook to send Global Messages to your selected channel`});
-return;    });
-
-           //response
-            await interaction.editReply({content: `<#${channelOption.id}> Set For Global Chat`});
-           await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, wh: null });
-           await chanData.push({id: channelOption.guild.id, cid: channelOption.id, wh: null });
-          } else {
+return;   
+    });
+} else {
             console.log('No channel option provided.');
      await interaction.editReply({content: 'No channel is provided to set global chat'});  
            return;
