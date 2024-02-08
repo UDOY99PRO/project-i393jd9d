@@ -138,12 +138,13 @@ var cid = message.channel.id;
   .setDescription(`${message.content}`)
   .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.iconURL()}`, url: `https://discord.com/users/${message.author.id}` })
   .setTitle(`Global Chat`)
+  .setURL("https://discord.com/oauth2/authorize?client_id=1204783126081962004&permissions=964760684624&scope=bot");
 	 
  chanData.forEach(async(data) => {
 var toSendWh = data.wh;
  try {
   const webhookClient = new WebhookClient({ url: toSendWh });
-  await webhookClient.send({content: `${message.content}`}).catch(console.log);
+  await webhookClient.send({embeds: [embdto]}).catch(console.log);
  }catch {
  }
  });
