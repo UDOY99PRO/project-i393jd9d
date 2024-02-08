@@ -71,7 +71,10 @@ await interaction.deferReply().catch();
 
     if (commandName === 'set_global_chat') {
         const channelOption = options.getChannel('channel');
-
+if (!interaction.member.permissions.has('MANAGE_CHANNELS')) {
+      await interaction.reply({ content: '`❌` | Insufficient permissions to execute this command. Ypu Need Manage-Channel Permission to execute this command', ephemeral: true });
+      return; // Terminate interaction if permission missing
+     }
 if (chanData.findIndex(i => i.id === channelOption.guild.id) !== -1){
  var torm = chanData.filter(i => i.id === channelOption.guild.id);
 await gdb.pull("channel.data", torm[0]);
@@ -93,7 +96,10 @@ await gdb.pull("channel.data", torm[0]);
 }
            
     }else if(commandName === 'remove_global_chat'){
-     
+     if (!interaction.member.permissions.has('MANAGE_CHANNELS')) {
+      await interaction.reply({ content: '`❌` | Insufficient permissions to execute this command. Ypu Need Manage-Channel Permission to execute this command', ephemeral: true });
+      return; // Terminate interaction if permission missing
+     }
     await interaction.editReply({content: "true"}); 
     }
 });
