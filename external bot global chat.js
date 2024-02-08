@@ -73,32 +73,29 @@ await client.application.commands.set([
 client.on('interactionCreate', async(interaction) => {
     if (!interaction.isCommand()) return;
 await interaction.deferReply();
- await
  
-  await
  const { commandName, options } = interaction;
 
     if (commandName === 'set_global_chat') {
         const channelOption = options.getChannel('channel');
       
-if(chanData.indexOf(i => i.id === channelOption.guild.id)){
+
+if (chanData.findIndex(i => i.id === channelOption.guild.id) !== -1){
  var torm = chanData.filter(i => i.id === channelOption.guild.id);
 await gdb.pull("channel.data", torm);
  chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
 }
          //grab wh
-       await channelOption.createWebhook('My Webhook')
-    .then(async(webhook) => {
-      console.log(webhook);
-       await interaction.editReply({content: `<#${channelOption.id}> Set For Global Chat`});
-           await gdb.push("channel.data", {id: channelOption.guild.id, cid: channelOption.id, wh: null });
-           await chanData.push({id: channelOption.guild.id, cid: channelOption.id, wh: null });
-     
-    })
-    .catch(async(error) => {  
-await interaction.editReply({content: `❌ | Error: I think I dont Have Permission To Manage Or Create Webhooks, I need to create a webhook to send Global Messages to your selected channel`});
-return;   
-    });
+      try {
+    const webhook = await channelOption.createWebhook('My Webhook');
+    console.log(webhook);
+    await interaction.editReply({ content: `<#${channelOption.id}> Set For Global Chat` });
+    await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: null });
+    chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: null });
+} catch (error) {
+    await interaction.editReply({ content: `❌ | Error: I think I don't have permission to manage or create webhooks. I need to create a webhook to send Global Messages to your selected channel` });
+    return;
+}
            
     }else if(commandName === 'remove_global_chat'){
     await interaction.editReply({content: "true"}); 
