@@ -84,7 +84,7 @@ await gdb.pull("channel.data", torm);
  chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
 }
          //grab wh
-          await channelOption.createWebhook('My Webhook')
+        channelOption.createWebhook('My Webhook')
     .then((webhook) => {
       console.log(webhook.url);
     })
