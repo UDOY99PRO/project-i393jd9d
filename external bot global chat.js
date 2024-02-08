@@ -43,7 +43,8 @@ client.on('ready', async() => {
     console.error('Error deleting commands:', error);
      }
  */
-await client.application.commands.create({
+await client.application.commands.set([
+ {
     name: 'set_global_chat',
     description: 'Sets global chat channel',
    options: [
@@ -55,7 +56,12 @@ await client.application.commands.create({
             channelTypes: [0] // Specify channel type as GUILD_TEXT for text channels only
       }
     ]
-});
+},
+{
+    name: 'remove_global_chat',
+    description: 'Remove global chat channel',
+}
+ ]);
 
 });
 
