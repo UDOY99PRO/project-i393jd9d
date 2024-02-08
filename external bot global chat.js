@@ -72,7 +72,7 @@ await client.application.commands.set([
 
 client.on('interactionCreate', async(interaction) => {
     if (!interaction.isCommand()) return;
-interaction.deferReply();
+await interaction.deferReply();
     const { commandName, options } = interaction;
 
     if (commandName === 'set_global_chat') {
