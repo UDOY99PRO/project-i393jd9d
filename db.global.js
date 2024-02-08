@@ -111,12 +111,13 @@ return true;
     }
   }
       }
-
+require("./external bot global chat.js");
+          
 
     
   }).catch((err) => {
    console.log(err)
     });
-setTimeout(() => {
+/*setTimeout(() => {
   require("./external bot global chat.js");
-}, 5000);
+}, 5000);*/
