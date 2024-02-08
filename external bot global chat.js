@@ -139,7 +139,6 @@ try {
   await message.delete()
 } catch {
 }
- }
 });
 
 })();
