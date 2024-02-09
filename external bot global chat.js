@@ -108,6 +108,10 @@ await gdb.pull("channel.data", torm[0]);
      chanData.splice(chanData.indexOf(i => i.id === interaction.guildId), 1);
      await gdb.pull("channel.data", thisGuildChannel[0]); 
     await interaction.editReply({content: `Successfully removed <#${thisGuildChannel[0].cid}> channel from global chat`}); 
+   try {
+const toDelWebhookClient = new WebhookClient({ url: thisGuildChannel[0].wh });
+ toDelWebhookClient.delete()
+   }catch{}
     }
 });
 
@@ -161,4 +165,10 @@ try {
 }}
 });
 
+
+client.on("messageCreate", async(message) => {
+if(message.content === "..test?"){
+message.reply({content: "working"});
+}
+});
 })();
