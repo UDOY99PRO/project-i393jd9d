@@ -75,10 +75,10 @@ if (!interaction.member.permissions.has('MANAGE_CHANNELS')) {
       await interaction.editReply({ content: '`❌` | Insufficient permissions to execute this command. Ypu Need Manage-Channel Permission to execute this command', ephemeral: true });
       return; // Terminate interaction if permission missing
      }
-if (chanData.findIndex(i => i.id === channelOption.guild.id) !== -1){
- var torm = chanData.filter(i => i.id === channelOption.guild.id);
-await gdb.pull("channel.data", torm[0]);
- chanData.splice(chanData.indexOf(i => i.id === channelOption.guild.id), 1);
+if (chanData.filter(i => i.id === channelOption.guildId).length !== 0){
+	try{
+await interaction.editReply({content: `<#${chanData.filter(i => i.id === channelOption.guildId).cid}> Channel is already set for global Chat \n\n Remove the channel using \`/remove_global_chat\` command before executing this command`})
+	}catch{}
 }
          //grab wh
       try {
