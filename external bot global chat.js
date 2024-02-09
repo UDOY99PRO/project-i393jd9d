@@ -77,7 +77,7 @@ if (!interaction.member.permissions.has('MANAGE_CHANNELS')) {
      }
 if (chanData.filter(i => i.id === channelOption.guildId).length !== 0){
 	try{
-await interaction.editReply({content: `<#${chanData.filter(i => i.id === channelOption.guildId).cid}> Channel is already set for global Chat \n\n Remove the channel using \`/remove_global_chat\` command before executing this command`})
+await interaction.editReply({content: `\`❌\` | <#${chanData.filter(i => i.id === channelOption.guildId)[0].cid}> Channel is already set for global Chat \n\n Remove the channel using \`/remove_global_chat\` command before executing this command`})
 	}catch{}
 }
          //grab wh
