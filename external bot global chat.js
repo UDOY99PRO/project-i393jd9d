@@ -148,7 +148,7 @@ var cid = message.channel.id;
    return;
   }
 var msg = message.content;
-const  = new ActionRowBuilder();
+const acro = new ActionRowBuilder();
 			
 	 if(message.author.id === "852183674203144226"){
 let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
