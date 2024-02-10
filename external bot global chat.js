@@ -98,12 +98,14 @@ await interaction.editReply({content: `\`❌\` | <#${chanData.filter(i => i.id =
      name: "Global Chatter",
      avatar: client.user.avatarURL()
     });
+	      
+    await channelOption.setRateLimitPerUser("5", "Setting Up Global chat channel");
     await interaction.editReply({ content: `\`✅\` | <#${channelOption.id}> channel is successfully set for global chat` });
     await gdb.push("channel.data", { id: channelOption.guild.id, cid: channelOption.id, wh: webhook.url });
     chanData.push({ id: channelOption.guild.id, cid: channelOption.id, wh: webhook.url });
 } catch (error) {
        console.log(error);
-    await interaction.editReply({ content: `\`❌\` | Error: I think I don't have permission to manage or create webhooks. I need manage-webhook permission to create a webhook to send Global Messages to your selected channel` });
+    await interaction.editReply({ content: `\`❌\` | Error: I think I don't have permission to manage or create webhooks and channels. I need manage-webhook permission to create a webhook to send Global Messages to your selected channel and manage channel permission to set rate limit cooldown to the channel` });
     return;
 }
            
