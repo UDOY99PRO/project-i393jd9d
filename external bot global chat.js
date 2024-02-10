@@ -173,7 +173,7 @@ const pre_2 = new ButtonBuilder()
 		        .setDisabled(true)
 		        .setEmoji('1205538866681880606');
 acro.addComponents(dev, pre_2);
-	// }
+	 }
   var embdto = new EmbedBuilder()
   .setTimestamp()
   .setColor("Random")
