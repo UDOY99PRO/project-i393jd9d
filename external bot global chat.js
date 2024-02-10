@@ -10,7 +10,7 @@
   852183674203144226
   */
 (async() => {
- var { GatewayIntentBits, Partials, Client, Events, WebhookClient, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require("discord.js"); 
+ var { GatewayIntentBits, Partials, Client, Events, WebhookClient, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, MessageAttachment } = require("discord.js"); 
 var chanData = await gdb.getArray("channel.data");
 const client = new Client({
     fetchAllMembers: true,
@@ -143,7 +143,8 @@ client.on("messageCreate", async(message) => {
 if(message.channel.rateLimitPerUser < 5) return;
 if(message.attachments.size > 0) {
 if(message.attachments[0].url){
-filesToSend = [new MessageAttachment(message.attachments[0].url)];
+var tempFileUrl = new MessageAttachment(message.attachments.first().url);
+filesToSend = [tempFileUrl];
 }
 var msg = message.content ?? "*";
 }else{
