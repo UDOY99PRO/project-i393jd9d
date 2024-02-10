@@ -176,8 +176,7 @@ const pre_2 = new ButtonBuilder()
 		        .setDisabled(true)
 		        .setEmoji('1205538866681880606');
 acro.addComponents(dev, pre_2);
-	 }
-  var embdto = new EmbedBuilder()
+		 var embdto = new EmbedBuilder()
   .setTimestamp()
   .setColor("Random")
   .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() })
@@ -194,6 +193,25 @@ var toSendWh = data.wh;
  }catch {
  }
  });
+	 } else {
+  var embdto = new EmbedBuilder()
+  .setTimestamp()
+  .setColor("Random")
+  .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() })
+  .setDescription(`${msg}`)
+  .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 })}`, url: `https://discord.com/users/${message.author.id}` })
+  .setTitle(`Global Chat`)
+  .setURL("https://discord.com/api/oauth2/authorize?client_id=1204783126081962004&permissions=137976335440&scope=bot");
+	 
+ chanData.forEach(async(data) => {
+var toSendWh = data.wh;
+ try {
+  const webhookClient = new WebhookClient({ url: toSendWh });
+  await webhookClient.send({embeds: [embdto]}).catch(console.log);
+ }catch {
+ }
+ });
+	 }
  
 /* var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
