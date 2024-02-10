@@ -137,14 +137,19 @@ const toDelWebhookClient = new WebhookClient({ url: thisGuildChannel[0].wh });
 
 //main global chat event
 client.on("messageCreate", async(message) => {
+	let filesToSend = [];
+	var msg;
  if(message.author.bot) return;
 if(message.channel.rateLimitPerUser < 5) return;
 if(message.attachments.size > 0) {
-	return; 
+if(message.attachments[0].url){
+filesToSend = [new MessageAttachment(attachment.url)];
 }
-if(!message.content) {
-	return;
+var msg = message.content ?? "*";
+}else{
+var msg = message.content;
 }
+
 var cid = message.channel.id;
  var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
@@ -156,7 +161,7 @@ var cid = message.channel.id;
  }catch{}
    return;
   }
-var msg = message.content;
+
 const acro = new ActionRowBuilder();
 			
 	 if(message.author.id === "852183674203144226"){
@@ -195,7 +200,7 @@ acro.addComponents(dev, pre_2);
 var toSendWh = data.wh;
  try {
   const webhookClient = new WebhookClient({ url: toSendWh });
-  await webhookClient.send({embeds: [embdto], components: [acro]}).catch(console.log);
+  await webhookClient.send({embeds: [embdto], components: [acro], files: filesToSend}).catch(console.log);
  }catch {
  }
  });
@@ -213,7 +218,7 @@ var toSendWh = data.wh;
 var toSendWh = data.wh;
  try {
   const webhookClient = new WebhookClient({ url: toSendWh });
-  await webhookClient.send({embeds: [embdto]}).catch(console.log);
+  await webhookClient.send({embeds: [embdto], files: filesToSend}).catch(console.log);
  }catch {
  }
  });
