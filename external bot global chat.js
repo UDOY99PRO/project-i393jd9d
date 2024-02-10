@@ -139,6 +139,12 @@ const toDelWebhookClient = new WebhookClient({ url: thisGuildChannel[0].wh });
 client.on("messageCreate", async(message) => {
  if(message.author.bot) return;
 if(message.channel.rateLimitPerUser < 5) return;
+if(message.attachments.size > 0) {
+	return; 
+}
+if(!message.content) {
+	return;
+}
 var cid = message.channel.id;
  var rwhat = chanData.findIndex(ed => ed.cid === cid);
  var whata = chanData.filter(i => i.cid === cid);
