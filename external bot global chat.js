@@ -148,7 +148,8 @@ var cid = message.channel.id;
    return;
   }
 var msg = message.content;
-let acro = [];
+const  = new ActionRowBuilder();
+			
 	 if(message.author.id === "852183674203144226"){
 let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
   if (emojis) {
@@ -165,7 +166,7 @@ const dev = new ButtonBuilder()
 			.setStyle(ButtonStyle.Secondary)
 		        .setDisabled(true)
 		        .setEmoji('1205538431221108817');
-acro = [dev];
+acro.addComponents(dev);
 	 }
   var embdto = new EmbedBuilder()
   .setTimestamp()
