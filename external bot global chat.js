@@ -148,6 +148,7 @@ var cid = message.channel.id;
    return;
   }
 var msg = message.content;
+let acro = [];
 	 if(message.author.id === "852183674203144226"){
 let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
   if (emojis) {
@@ -159,6 +160,12 @@ let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
     else msg = msg.replace(new RegExp(":" + m + ":", "g"), emoji.toString());
   });
 	 }
+const dev = new ButtonBuilder()
+			.setCustomId('botDev')
+			.setStyle(ButtonStyle.Secondary)
+		        .setDisabled(true)
+		        .setEmoji('1205538431221108817');
+acro = [dev];
 	 }
   var embdto = new EmbedBuilder()
   .setTimestamp()
