@@ -150,7 +150,7 @@ var cid = message.channel.id;
 var msg = message.content;
 	 if(message.author.id === "852183674203144226"){
 let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
-  if (!emojis) return;
+  if (emojis) {
   emojis.forEach(m => {
     let emoji = client.emojis.cache.find(x => x.name === m)
     if (!emoji) return;
@@ -158,6 +158,7 @@ let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
     if (new RegExp(temp, "g").test(msg)) msg = msg.replace(new RegExp(temp, "g"), emoji.toString())
     else msg = msg.replace(new RegExp(":" + m + ":", "g"), emoji.toString());
   });
+	 }
 	 }
   var embdto = new EmbedBuilder()
   .setTimestamp()
