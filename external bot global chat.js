@@ -143,7 +143,7 @@ client.on("messageCreate", async(message) => {
 if(message.channel.rateLimitPerUser < 5) return;
 if(message.attachments.size > 0) {
 if(message.attachments[0].url){
-filesToSend = [new MessageAttachment(attachment.url)];
+filesToSend = [new MessageAttachment(message.attachments[0].url)];
 }
 var msg = message.content ?? "*";
 }else{
