@@ -1,3 +1,14 @@
+/*let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
+  if (!emojis) return;
+  emojis.forEach(m => {
+    let emoji = client.emojis.cache.find(x => x.name === m)
+    if (!emoji) return;
+    let temp = emoji.toString()
+    if (new RegExp(temp, "g").test(msg)) msg = msg.replace(new RegExp(temp, "g"), emoji.toString())
+    else msg = msg.replace(new RegExp(":" + m + ":", "g"), emoji.toString());
+  })
+  852183674203144226
+  */
 (async() => {
  var { GatewayIntentBits, Partials, Client, Events, WebhookClient, EmbedBuilder } = require("discord.js"); 
 var chanData = await gdb.getArray("channel.data");
@@ -136,11 +147,23 @@ var cid = message.channel.id;
  }catch{}
    return;
   }
+var msg = message.content;
+	 if(message.author.id === "852183674203144226"){
+let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
+  if (!emojis) return;
+  emojis.forEach(m => {
+    let emoji = client.emojis.cache.find(x => x.name === m)
+    if (!emoji) return;
+    let temp = emoji.toString()
+    if (new RegExp(temp, "g").test(msg)) msg = msg.replace(new RegExp(temp, "g"), emoji.toString())
+    else msg = msg.replace(new RegExp(":" + m + ":", "g"), emoji.toString());
+  });
+	 }
   var embdto = new EmbedBuilder()
   .setTimestamp()
   .setColor("Random")
   .setFooter({ text: `${message.guild.name}`, iconURL: message.guild.iconURL() })
-  .setDescription(`${message.content}`)
+  .setDescription(`${msg}`)
   .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 })}`, url: `https://discord.com/users/${message.author.id}` })
   .setTitle(`Global Chat`)
   .setURL("https://discord.com/oauth2/authorize?client_id=1204783126081962004&permissions=964760684624&scope=bot");
