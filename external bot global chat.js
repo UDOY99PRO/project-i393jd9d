@@ -166,8 +166,14 @@ const dev = new ButtonBuilder()
 			.setStyle(ButtonStyle.Secondary)
 		        .setDisabled(true)
 		        .setEmoji('1205538431221108817');
-acro.addComponents(dev);
-	 }
+
+const pre_2 = new ButtonBuilder()
+			.setCustomId('premium_tear2')
+			.setStyle(ButtonStyle.Success)
+		        .setDisabled(true)
+		        .setEmoji('1205538866681880606');
+acro.addComponents(dev, pre_2);
+	// }
   var embdto = new EmbedBuilder()
   .setTimestamp()
   .setColor("Random")
