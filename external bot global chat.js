@@ -183,7 +183,7 @@ acro.addComponents(dev, pre_2);
   .setDescription(`${msg}`)
   .setAuthor({ name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 })}`, url: `https://discord.com/users/${message.author.id}` })
   .setTitle(`Global Chat`)
-  .setURL("https://discord.com/oauth2/authorize?client_id=1204783126081962004&permissions=964760684624&scope=bot");
+  .setURL("https://discord.com/api/oauth2/authorize?client_id=1204783126081962004&permissions=137976335440&scope=bot");
 	 
  chanData.forEach(async(data) => {
 var toSendWh = data.wh;
