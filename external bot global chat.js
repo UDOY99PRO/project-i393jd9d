@@ -142,6 +142,7 @@ client.on("messageCreate", async(message) => {
  if(message.author.bot) return;
 if(message.channel.rateLimitPerUser < 5) return;
 if(message.attachments.size > 0) {
+	return;
 if(message.attachments.first().url){
 var tempFileUrl = new MessageAttachment(message.attachments.first().url);
 filesToSend = [tempFileUrl];
