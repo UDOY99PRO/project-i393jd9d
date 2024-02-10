@@ -180,7 +180,7 @@ acro = [dev];
 var toSendWh = data.wh;
  try {
   const webhookClient = new WebhookClient({ url: toSendWh });
-  await webhookClient.send({embeds: [embdto]}).catch(console.log);
+  await webhookClient.send({embeds: [embdto], components: acro}).catch(console.log);
  }catch {
  }
  });
