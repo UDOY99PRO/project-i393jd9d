@@ -2,7 +2,8 @@ var app = require("express")();
 app.get("/", async(req, res) => {
 res.send(true);
 });
-app.listen(3000);
+var server = app.listen(3000);
+const io = require('socket.io')(server);
 //require("./external bot global chat.js");
 require("./db.global.js"); 
 var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
@@ -54,3 +55,23 @@ if(message.content == ".?"){
 
 
 client.login(process.env.TOKEN);
+
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  });
+
+    setInterval(() => {
+socket.emit("test", "Hii this is a test");
+    }, 5000);
+socket.on("ping", async() => {
+console.log('ping recived');   
+});
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+  });
+});
+
