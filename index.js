@@ -4,7 +4,7 @@ res.send(true);
 });
 var server = app.listen(3000);
 const io = require('socket.io')(server);
-//require("./external bot global chat.js");
+require("./external bot global chat.js");
 require("./db.global.js"); 
 var { GatewayIntentBits, Partials, Client, Events } = require("discord.js"); 
 
